@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "purpose": "Scores apps NOT in known_signatures.json against permission/behavior patterns observed across the 14-app corpus. Exists because operators reskin under new names faster than any static database can track (see known_reskin_operators in known_signatures.json).",
+    "scoring": "Sum matched signal weights. threshold_review >= 30 shows a soft in-app notice. threshold_alert >= 55 shows the full alert UI.",
+    "threshold_review": 30,
+    "threshold_alert": 55,
+    "false_positive_note": "Legitimate apps (parental controls with disclosed operation, accessibility tools, MDM/enterprise device managers, Find My Device) can trigger several of these signals individually. This model flags for HUMAN REVIEW by the device owner -- it never auto-removes anything, and always shows which specific signals fired so the user can judge context (e.g. 'I run an enterprise MDM app, that's expected')."
+  },
+  "signals": [
+    {
+      "id": "hidden_launcher_icon",
+      "weight": 25,
+      "detection": "App is installed (present in PackageManager) but has no enabled launcher activity / icon visible in the app drawer.",
+      "rationale": "Present in 12/14 corpus apps' own marketing copy as an explicit selling point ('100% invisible', 'no icon', 'stays hidden')."
+    },
+    {
+      "id": "sms_call_log_bundle",
+      "weight": 15,
+      "detection": "Holds READ_SMS + RECEIVE_SMS + READ_CALL_LOG simultaneously.",
+      "rationale": "Core data-capture bundle for the overt_stalkerware and partner_trust taxonomy categories."
+    },
+    {
+      "id": "location_plus_camera_or_mic",
+      "weight": 15,
+      "detection": "Holds ACCESS_FINE_LOCATION together with either CAMERA or RECORD_AUDIO.",
+      "rationale": "Ambient surveillance combination (ambient recording, remote camera activation) -- present in FlexiSPY, SpyBubble Pro, uMobix marketing."
+    },
+    {
+      "id": "accessibility_service_bind",
+      "weight": 20,
+      "detection": "Requests BIND_ACCESSIBILITY_SERVICE without being a known accessibility tool (screen reader, etc. -- cross-checked against a small allowlist).",
+      "rationale": "Used by several corpus apps for keylogging and screen-content capture beyond what standard permissions allow."
+    },
+    {
+      "id": "battery_optimization_exemption",
+      "weight": 10,
+      "detection": "Requests REQUEST_IGNORE_BATTERY_OPTIMIZATIONS.",
+      "rationale": "Needed to keep a hidden background service alive continuously -- common but not sufficient alone (many legitimate apps also request this, hence low weight)."
+    },
+    {
+      "id": "device_admin_or_uninstall_protection",
+      "weight": 20,
+      "detection": "Registers as a Device Administrator app AND is not a known enterprise MDM package.",
+      "rationale": "Used to prevent the device owner from uninstalling the app without extra steps -- a consent-architecture red flag matching this project's rubric's score-0 definition."
+    },
+    {
+      "id": "generic_or_disguised_app_name",
+      "weight": 10,
+      "detection": "App label matches a list of common disguise names (e.g. 'System Update', 'Play Services', 'Sync', 'Wi-Fi Service') while the underlying package metadata / developer signature does not match Google/AOSP known signing keys.",
+      "rationale": "Reported disguise pattern for uMobix and others in independent reviews read during corpus verification."
+    },
+    {
+      "id": "network_destination_known_operator",
+      "weight": 40,
+      "detection": "Outbound network traffic (from on-device VPN-based traffic inspection, opt-in) matches a domain in known_signatures.json's known_domains list.",
+      "rationale": "Direct match to the verified corpus -- highest-confidence signal when available. Requires the user to opt in to local traffic inspection (a on-device VPN service, data never leaves the device except the aggregate report described in reporting_client.md)."
+    }
+  ],
+  "explicit_non_signals": {
+    "note": "Signals intentionally NOT included, and why -- to avoid over-flagging and to stay consistent with this project's rubric distinguishing good-faith disclosed monitoring from covert monitoring.",
+    "excluded": [
+      "Simple presence of ACCESS_FINE_LOCATION alone (used by thousands of legitimate apps)",
+      "Presence of a 'parental control' or 'family' keyword in the app name (Bark and Qustodio, both baselines, use these terms too)",
+      "Any signal based on who installed the app or their stated intent -- this tool only evaluates technical behavior, never assumes motive"
+    ]
+  }
+}

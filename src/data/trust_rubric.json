@@ -1,0 +1,32 @@
+{
+  "consent_architecture": {
+    "question": "Does the platform notify/require independent consent from the monitored number, or is consent only self-attested by the account holder?",
+    "scale": "0 = no consent mechanism, 1 = self-attested only, 2 = independently verified"
+  },
+  "data_minimization": {
+    "question": "Does the platform capture metadata only, or full content (chat text / call audio)?",
+    "scale": "0 = full content capture, 1 = mixed, 2 = metadata-only by default"
+  },
+  "encryption_posture": {
+    "question": "Is data encrypted at rest and in transit, and who holds the keys?",
+    "scale": "0 = no stated encryption, 1 = transit-only, 2 = at-rest + in-transit with clear key custody"
+  },
+  "jurisdictional_compliance": {
+    "question": "Does the stated privacy policy align with actual observed data practices, as far as determinable from public artifacts?",
+    "scale": "0 = contradicted by public evidence, 1 = untestable/ambiguous, 2 = consistent"
+  },
+  "business_model_transparency": {
+    "question": "Is the monetization model disclosed, and does it avoid broad or unnecessary permissions?",
+    "scale": "0 = opaque + broad permissions, 1 = partial disclosure, 2 = transparent + minimal permissions"
+  },
+  "enforcement_history": {
+    "question": "Has the operator, or a clear corporate relative, been subject to regulatory action (FTC/DPA) or a disclosed breach?",
+    "scale": "0 = known adverse action, 1 = no record found, 2 = n/a (new entrant, insufficient history)"
+  },
+  "covert_operation_intent": {
+    "question": "Does the platform's own marketing present undetectability or stealth from the monitored party as a selling point, independent of who consented to installation?",
+    "scale": "0 = stealth explicitly marketed as a feature, 1 = ambiguous or not addressed, 2 = platform explicitly states it cannot run hidden",
+    "added_mid_study": true,
+    "revision_note": "Added after a face-validity failure in which a covert-marketed app outranked an independently non-stealth-capable parental-control app under the original 6-dimension rubric."
+  }
+}

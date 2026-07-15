@@ -1,0 +1,32 @@
+{
+  "parental_control": {
+    "label": "Parental Control",
+    "description": "Marketed for monitoring a minor child; some legal basis typically exists.",
+    "example_class": ["Bark", "Qustodio"],
+    "color": "moss"
+  },
+  "mutual_safety": {
+    "label": "Mutual Family Safety",
+    "description": "Opt-in, reciprocal location/status sharing among consenting adults.",
+    "example_class": ["Life360-style"],
+    "color": "denim"
+  },
+  "partner_trust": {
+    "label": "Partner / Relationship Monitoring",
+    "description": "A partner's phone number is entered to monitor their chats, calls, or location.",
+    "example_class": ["'Couple trust' / relationship monitoring apps"],
+    "color": "amber"
+  },
+  "overt_stalkerware": {
+    "label": "Overt Stalkerware",
+    "description": "Covert install, hidden operation, full content capture; historically subject to FTC enforcement.",
+    "example_class": ["SpyFone (banned 2021)", "Retina-X / MobileSpy / PhoneSheriff (settled 2018)"],
+    "color": "rust"
+  },
+  "number_only_lookup": {
+    "label": "Number-Only Lookup / Link-Based Geolocation",
+    "description": "No install, no device access. Only the target's phone number is entered; a link is sent and opening it exposes location to the requester.",
+    "example_class": ["Scannero-class tools"],
+    "color": "violet"
+  }
+}

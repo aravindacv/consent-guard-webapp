@@ -1,0 +1,162 @@
+{
+  "_meta": {
+    "source": "Derived from monitoring-app-trust-benchmark corpus (14 apps verified, Steps 1-5)",
+    "generated": "2026-07-14",
+    "confidence_note": "android_package_name is ONLY populated where confirmed from an official Play Store listing during research. Everything marked null is intentionally left unconfirmed rather than guessed -- this project does not fabricate evidence. The heuristic engine (see heuristic_model.json) is the primary detection mechanism precisely because exact package names for these operators change frequently (see 'known_reskin_operators').",
+    "known_reskin_operators": [
+      {
+        "operator": "ILF Mobile Apps Corp",
+        "brands": ["Highster Mobile", "Auto Forward", "Easy Spy", "DDI Utilities", "PhoneSpector"],
+        "source": "NY AG assurance of discontinuance, ag.ny.gov"
+      }
+    ]
+  },
+  "signatures": [
+    {
+      "app_id": "mspy",
+      "display_name": "mSpy",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["mspy.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "4/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "Marketing states 'totally hidden' / 'completely confidential', no icon visible on target device.",
+      "enforcement_record": "2015 data breach reported (Krebs on Security), disputed by mSpy."
+    },
+    {
+      "app_id": "flexispy",
+      "display_name": "FlexiSPY",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["flexispy.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "4/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "Marketed as '100% hidden', requires root/jailbreak, own ToS acknowledges illegality if installed without consent."
+    },
+    {
+      "app_id": "highster",
+      "display_name": "Highster Mobile",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["highstermobi.com", "highstermobile.co", "highstermobiles.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "2/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "FAQ: 'Secretly track and spy on virtually any cell phone... completely undetected.'",
+      "enforcement_record": "NY AG assurance of discontinuance vs. ILF Mobile Apps Corp -- also operates Auto Forward, Easy Spy, DDI Utilities, PhoneSpector under the same entity."
+    },
+    {
+      "app_id": "xnspy",
+      "display_name": "XNSPY",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["xnspy.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "5/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "FAQ: 'XNSPY mobile monitoring app is 100% invisible and stays hidden... will not show in the installed apps list.'"
+    },
+    {
+      "app_id": "eyezy",
+      "display_name": "Eyezy / EyeZy",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["eyezyapp.com", "eyezy.com"],
+      "android_package_name": "com.eyezy.android",
+      "package_name_source": "Confirmed via Google Play Store listing during corpus verification.",
+      "trust_score_from_benchmark": "5/14",
+      "covert_operation_intent": 0,
+      "sanity_flag": "Do not confuse with eyezie.com, an unrelated e-commerce site."
+    },
+    {
+      "app_id": "hoverwatch",
+      "display_name": "Hoverwatch",
+      "taxonomy_category": "parental_control",
+      "sanity_flag": "Operator's own Acceptable Use Policy PROHIBITS adult/partner monitoring even with consent, yet its own marketing pages market complete invisibility -- an internal self-contradiction, not just a marketing/reality gap.",
+      "known_domains": ["hoverwatch.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "6/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "Marketing page: 'stays completely hidden -- no icons or alerts give it away.'"
+    },
+    {
+      "app_id": "famispy",
+      "display_name": "FamiSpy",
+      "taxonomy_category": "partner_trust",
+      "known_domains": ["famispy.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "4/14",
+      "covert_operation_intent": 0
+    },
+    {
+      "app_id": "umobix",
+      "display_name": "uMobix",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["umobix.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "3/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "Features page: 'runs in stealth mode, which makes it impossible for kids to tamper.'"
+    },
+    {
+      "app_id": "spybubble",
+      "display_name": "SpyBubble Pro",
+      "taxonomy_category": "overt_stalkerware",
+      "known_domains": ["spybubblepro.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "3/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "Marketing: 'app is invisible to the end user, so no one will know you installed it.'"
+    },
+    {
+      "app_id": "spynger",
+      "display_name": "Spynger",
+      "taxonomy_category": "partner_trust",
+      "sanity_flag": "Name collision with an UNRELATED iOS app 'SpyNger: Find Family & Friends' by developer bouzkriapps -- do not conflate signatures.",
+      "known_domains": ["spynger.net"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "4/14",
+      "covert_operation_intent": 0,
+      "covert_operation_evidence": "Own FAQ: 'Cover your tracks... your partner won't even know the app is installed.'"
+    },
+    {
+      "app_id": "bark",
+      "display_name": "Bark",
+      "taxonomy_category": "parental_control",
+      "known_domains": ["bark.us"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "8/14",
+      "covert_operation_intent": 1,
+      "note": "BASELINE (non-covert). Child is informed during setup; AI-alert model, not raw message dump. Included for the detector to correctly NOT flag this as stalkerware."
+    },
+    {
+      "app_id": "qustodio",
+      "display_name": "Qustodio",
+      "taxonomy_category": "parental_control",
+      "known_domains": ["qustodio.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "6/14",
+      "covert_operation_intent": 1,
+      "note": "BASELINE (non-covert). Own help center confirms: cannot hide on mobile devices due to technical limitations."
+    },
+    {
+      "app_id": "life360_class",
+      "display_name": "Life360",
+      "taxonomy_category": "mutual_safety",
+      "known_domains": ["life360.com"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "8/14",
+      "covert_operation_intent": 2,
+      "note": "BASELINE (non-covert). Own blog: 'Can You Track Someone on Life360 Without Them Knowing? ... No.'",
+      "sanity_flag": "Do not confuse with life360.bio, an unrelated biologics company."
+    },
+    {
+      "app_id": "scannero_class",
+      "display_name": "Scannero-class (link-based, no-install lookup)",
+      "taxonomy_category": "number_only_lookup",
+      "known_domains": ["scannero.io", "scannero.top"],
+      "android_package_name": null,
+      "trust_score_from_benchmark": "7/14",
+      "covert_operation_intent": 1,
+      "note": "No install on target device -- NOT detectable by an on-device app scanner. Requires target to click a link. Out of scope for this Android tool; relevant to a future browser-extension companion tool instead.",
+      "sanity_flag": "Domain mismatch: marketed at scannero.io, privacy policy hosted at scannero.top under a different registered entity (Hong Kong Reverse Technology Limited). Low third-party trust scores."
+    }
+  ]
+}

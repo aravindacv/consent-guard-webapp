@@ -39,7 +39,7 @@ export function Intake() {
         body: JSON.stringify({ messages: nextMessages }),
       })
       if (!res.ok) throw new Error('Request failed')
-      const data = await res.json()
+      const data = await res.json() as { reply: string }
       setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }])
     } catch {
       setError(
